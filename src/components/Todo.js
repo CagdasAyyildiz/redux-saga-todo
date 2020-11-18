@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Card, Row, Col} from 'antd';
-import TodoDetails from './TodoDetails';
-import {fetchTodos} from '../store/actions/actionCreators';
-import 'antd/dist/antd.css';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Card, Row, Col, Input, Typography } from "antd";
+import TodoDetails from "./TodoDetails";
+import { fetchTodos } from "../store/actions/actionCreators";
+import "antd/dist/antd.css";
+import PropTypes from "prop-types";
+
+const { Text } = Typography;
 
 
 export class Todo extends Component {
@@ -20,6 +22,10 @@ export class Todo extends Component {
               {this.props.todos.map((todo) => (
                 <TodoDetails key={todo.id} todo={todo} />
               ))}
+              <Card>
+                <Text strong>Add Todo</Text>
+                <Input />
+              </Card>
             </Card>
           </Col>
         </Row>
@@ -30,8 +36,8 @@ export class Todo extends Component {
 
 Todo.propTypes = {
   fetchTodos: PropTypes.func,
-  todos: PropTypes.array
-}
+  todos: PropTypes.array,
+};
 
 const mapStateToProps = (state) => {
   return {

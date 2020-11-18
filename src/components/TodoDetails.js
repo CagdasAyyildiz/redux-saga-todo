@@ -19,9 +19,11 @@ export class TodoDetails extends Component {
     };
   }
   handleCompleteTodo() {
-    console.log(this)
     this.props.completeTodo(this.state.id)
-    console.log(this.props.todo)
+  }
+
+  handleRemoveTodo() {
+    this.props.removeTodo(this.state.id)
   }
 
   render() {
@@ -35,7 +37,7 @@ export class TodoDetails extends Component {
         shape="circle"
         twoToneColor="#eb2f96"
         icon={<CloseCircleTwoTone />}
-        onClick={this.props.removeTodo}
+        onClick={this.props.removeTodo.bind(this,this.props.todo.id)}
       />
     );
     return (
@@ -77,8 +79,8 @@ TodoDetails.propTypes = {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeTodo: () => dispatch(removeTodo()),
-    completeTodo: (id) => dispatch(completeTodo(id))
+    completeTodo: (id) => dispatch(completeTodo(id)),
+    removeTodo: (id) => dispatch(removeTodo(id))
   };
 };
 

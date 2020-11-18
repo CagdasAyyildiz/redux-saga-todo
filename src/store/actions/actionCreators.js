@@ -13,7 +13,7 @@ export const addTodo = (todo) => ({
 
 export const removeTodo = (id) => ({
   type: actions.REMOVE_TODO,
-  id,
+  payload: id,
 });
 
 export const completeTodo = (id) => ({

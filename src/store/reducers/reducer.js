@@ -28,7 +28,7 @@ export default function reducer(state = initialState, action) {
         return {
           ...state,
           todos: state.todos.map((todo) => {
-            if (todo.id === action.id) {
+            if (todo.id === action.payload) {
               return {
                 ...todo,
                 completed: !todo.completed,
@@ -39,7 +39,9 @@ export default function reducer(state = initialState, action) {
           }),
         };
       case actions.REMOVE_TODO:
-        return {...state,
+        console.log(action.payload)
+        return {
+          ...state,
           todos: state.todos.filter(({id}) => id !== action.payload)
         }
       default:

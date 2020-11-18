@@ -3,7 +3,7 @@ import React from "react";
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import Todo from './components/Todo';
-import TodoDetails from './components/TodoDetails';
+import TodoDetails from './components/TodoDetails'; 
 
 export const history = createHistory();
 
