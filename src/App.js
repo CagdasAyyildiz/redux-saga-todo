@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
+import Todo from './components/Todo';
+import TodoDetails from './components/TodoDetails';
+
+export const history = createHistory();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <Router history={history}>
+    <Switch>
+      <Route exact={true} path="/" component={Todo} />
+      <Route path="/:id" component={TodoDetails} />
+			<Redirect path="*" to="/"/>
+    </Switch>
+  </Router>
   );
 }
 

@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "content": "Study",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "content": "Read",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "content": "Shop",
+      "completed": false
+    },
+    {
+        "id": 4,
+        "content": "Watch movie",
+        "completed": true
+      }
+  ]
+}
