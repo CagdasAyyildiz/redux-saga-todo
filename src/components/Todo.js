@@ -9,14 +9,10 @@ import PropTypes from "prop-types";
 const { Text } = Typography;
 
 export class Todo extends Component {
-  constructor(props) {
-    super(props);
-    this.handleAddTodo = this.handleAddTodo.bind(this);
-  }
   componentDidMount() {
     this.props.fetchTodos();
   }
-  handleAddTodo(content) {
+  handleAddTodo = (content) => {
     let lastTodoIndex = this.props.todos.length 
     this.props.addTodo(content.newTodo,lastTodoIndex);
   }

@@ -18,12 +18,12 @@ export class TodoDetails extends Component {
       id: this.props.todo.id
     };
   }
-  handleCompleteTodo() {
-    this.props.completeTodo(this.state.id)
+  handleCompleteTodo = () => {
+    this.props.completeTodo(this.props.todo.id)
   }
 
-  handleRemoveTodo() {
-    this.props.removeTodo(this.state.id)
+  handleRemoveTodo = () => {
+    this.props.removeTodo(this.props.todo.id)
   }
 
   render() {
@@ -37,7 +37,7 @@ export class TodoDetails extends Component {
         shape="circle"
         twoToneColor="#eb2f96"
         icon={<CloseCircleTwoTone />}
-        onClick={this.props.removeTodo.bind(this,this.props.todo.id)}
+        onClick={this.handleRemoveTodo}
       />
     );
     return (
@@ -56,7 +56,7 @@ export class TodoDetails extends Component {
                     <Button
                       shape="circle"
                       icon={buttonIcon}
-                      onClick={this.handleCompleteTodo.bind(this,this.props.todo.id)}
+                      onClick={this.handleCompleteTodo}
                     />
                   </Col>
                   <Col>{this.props.todo.completed ? removeButton : null}</Col>
