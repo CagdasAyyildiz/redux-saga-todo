@@ -6,23 +6,11 @@ let initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.FETCH_TODOS_SUCCEED:
+      console.log(action.todos)
       return {
-        ...state,
-        todos: [
-          {
-            id: 1,
-            content: "Study",
-            completed: false,
-          },
-          {
-            id: 2,
-            content: "Read",
-            completed: true,
-          },
-        ],
+        todos: action.todos
       };
     case actions.ADD_TODO:
-      console.log(action.id)
       return {
         ...state,
         todos: [{
@@ -46,7 +34,6 @@ export default function reducer(state = initialState, action) {
         }),
       };
     case actions.REMOVE_TODO:
-      console.log(action.payload);
       return {
         ...state,
         todos: state.todos.filter(({ id }) => id !== action.payload),

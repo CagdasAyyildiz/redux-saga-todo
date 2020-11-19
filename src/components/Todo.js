@@ -11,9 +11,10 @@ const { Text } = Typography;
 export class Todo extends Component {
   componentDidMount() {
     this.props.fetchTodos();
+    console.log(this.props.todos)
   }
   handleAddTodo = (content) => {
-    let lastTodoIndex = this.props.todos.length 
+    let lastTodoIndex = this.props.todos.length;
     this.props.addTodo(content.newTodo,lastTodoIndex);
   }
   render() {
@@ -53,6 +54,7 @@ Todo.propTypes = {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     todos: state.todos,
   };
