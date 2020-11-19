@@ -21,7 +21,7 @@ export default function reducer(state = initialState, action) {
           },
         ],
       };
-    case actions.ADD_TODO_SUCCEED:
+    case actions.ADD_TODO:
       console.log(action.id)
       return {
         ...state,
@@ -31,7 +31,7 @@ export default function reducer(state = initialState, action) {
           completed: false,
         },...state.todos]
       };
-    case actions.COMPLETE_TODO_SUCCEED:
+    case actions.COMPLETE_TODO:
       return {
         ...state,
         todos: state.todos.map((todo) => {
@@ -45,7 +45,7 @@ export default function reducer(state = initialState, action) {
           }
         }),
       };
-    case actions.REMOVE_TODO_SUCCEED:
+    case actions.REMOVE_TODO:
       console.log(action.payload);
       return {
         ...state,

@@ -7,3 +7,4 @@ export function* fetchTodosSaga() {
     console.log(todos)
     yield put({type: actions.FETCH_TODOS_SUCCEED, todos: todos})
 }
+
