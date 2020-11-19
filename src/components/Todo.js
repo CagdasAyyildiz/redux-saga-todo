@@ -1,21 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Card, Row, Col, Input, Typography } from "antd";
+import { Card, Row, Col, Input, Typography, Form, Button } from "antd";
 import TodoDetails from "./TodoDetails";
-import { fetchTodos } from "../store/actions/actionCreators";
+import { fetchTodos, addTodo } from "../store/actions/actionCreators";
 import "antd/dist/antd.css";
 import PropTypes from "prop-types";
 
 const { Text } = Typography;
 
-
 export class Todo extends Component {
+  constructor(props) {
+    super(props);
+    this.handleAddTodo = this.handleAddTodo.bind(this);
+  }
   componentDidMount() {
     this.props.fetchTodos();
   }
+  handleAddTodo(content) {
+    let lastTodoIndex = this.props.todos.length 
+    this.props.addTodo(content.newTodo,lastTodoIndex);
+  }
   render() {
     return (
-      <div>
+      <div>ca
         <Row justify="center">
           <Col span={8}>
             <Card title="Todo List">
@@ -24,7 +31,16 @@ export class Todo extends Component {
               ))}
               <Card>
                 <Text strong>Add Todo</Text>
-                <Input />
+                <Form onFinish={this.handleAddTodo}>
+                  <Form.Item label="newTodo" name="newTodo">
+                    <Input />
+                  </Form.Item>
+                  <Form.Item >
+                    <Button type="primary" htmlType="submit">
+                      Submit
+                    </Button>
+                  </Form.Item>
+                </Form>
               </Card>
             </Card>
           </Col>
@@ -37,6 +53,7 @@ export class Todo extends Component {
 Todo.propTypes = {
   fetchTodos: PropTypes.func,
   todos: PropTypes.array,
+  addTodo: PropTypes.func,
 };
 
 const mapStateToProps = (state) => {
@@ -48,6 +65,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchTodos: () => dispatch(fetchTodos()),
+    addTodo: (content,lastTodoIndex) => dispatch(addTodo(content,lastTodoIndex))
   };
 };
 

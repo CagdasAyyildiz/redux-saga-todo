@@ -6,9 +6,10 @@ export const fetchTodos = () => {
   };
 };
 
-export const addTodo = (todo) => ({
+export const addTodo = (todoContent,id) => ({
   type: actions.ADD_TODO,
-  todo,
+  payload: todoContent,
+  id: id+1
 });
 
 export const removeTodo = (id) => ({
@@ -19,10 +20,4 @@ export const removeTodo = (id) => ({
 export const completeTodo = (id) => ({
   type: actions.COMPLETE_TODO,
   payload: id,
-})
-
-export const editTodo = (id, updates) => ({
-  type: actions.EDIT_TODO,
-  id,
-  updates,
 });
