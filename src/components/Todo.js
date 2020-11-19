@@ -18,7 +18,7 @@ export class Todo extends Component {
   }
   render() {
     return (
-      <div>ca
+      <div>
         <Row justify="center">
           <Col span={8}>
             <Card title="Todo List">
