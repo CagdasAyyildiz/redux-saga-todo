@@ -5,7 +5,7 @@ let initialState = {
 };
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case actions.FETCH_TODOS:
+    case actions.FETCH_TODOS_SUCCEED:
       return {
         ...state,
         todos: [
@@ -21,7 +21,7 @@ export default function reducer(state = initialState, action) {
           },
         ],
       };
-    case actions.ADD_TODO:
+    case actions.ADD_TODO_SUCCEED:
       console.log(action.id)
       return {
         ...state,
@@ -31,7 +31,7 @@ export default function reducer(state = initialState, action) {
           completed: false,
         },...state.todos]
       };
-    case actions.COMPLETE_TODO:
+    case actions.COMPLETE_TODO_SUCCEED:
       return {
         ...state,
         todos: state.todos.map((todo) => {
@@ -45,7 +45,7 @@ export default function reducer(state = initialState, action) {
           }
         }),
       };
-    case actions.REMOVE_TODO:
+    case actions.REMOVE_TODO_SUCCEED:
       console.log(action.payload);
       return {
         ...state,

@@ -12,12 +12,7 @@ import PropTypes from 'prop-types';
 
 
 export class TodoDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  
-      id: this.props.todo.id
-    };
-  }
+
   handleCompleteTodo = () => {
     this.props.completeTodo(this.props.todo.id)
   }
